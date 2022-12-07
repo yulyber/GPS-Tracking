@@ -15,16 +15,29 @@ class LocationController extends GetxController {
     required TrackedLocation location,
   }) async {
     /* TODO: Usa [LocationManager] para guardar [save] la ubicacion [location] */
+     await LocationManager.save(location: location);
+     _locations.value = await LocationManager.getAll();
   }
 
   Future<List<TrackedLocation>> getAll({
     String? orderBy,
   }) async {
     /* TODO: Usa [getAll] de [LocationManager] para obtener la lista de ubicaciones guardadas y retornalas */
+    // try{
+      _locations.value = await LocationManager.getAll();
+      return _locations.value;
+    // } catch (e,s){
+    //   // print(e);
+    //   // print(s);
+    //   rethrow;
+    // }
   }
 
   Future<void> updateLocation({required TrackedLocation location}) async {
     /* TODO: Usa [LocationManager.update] para actualizar la ubicacion y luego obten todas las ubicaciones de nuevo */
+    await LocationManager.update(location: location);
+    _locations.value = await LocationManager.getAll();
+
   }
 
   Future<void> deleteLocation({required TrackedLocation location}) async {
@@ -37,9 +50,15 @@ class LocationController extends GetxController {
       user.age = 18;
       });
      */
+    await LocationManager.delete(location: location);
+    _locations.update((records) { 
+      records!.removeWhere((record) => record.uuid == location.uuid);
+    });
   }
 
   Future<void> deleteAll() async {
     /* TODO: Con [LocationManager.deleteAll] elimina todas las ubicaciones guardas y asigna una lista vacia a [_locations.value] */
+    await LocationManager.deleteAll();
+    _locations.value = [];
   }
 }

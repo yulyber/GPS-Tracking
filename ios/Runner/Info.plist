@@ -48,6 +48,9 @@
 		<key>UIApplicationSupportsIndirectInputEvents</key>
 		<true/>
 		<!-- TODO: Agrega permiso: NSLocationWhenInUseUsageDescription -->
+		<!-- <key>NSLocationWhenInUseUsageDescription</key> -->
 		<!-- TODO: Agrega permiso: NSLocationAlwaysUsageDescription -->
+ 		<!-- <key>NSLocationAlwaysUsageDescription</key> -->
+
 	</dict>
 </plist>

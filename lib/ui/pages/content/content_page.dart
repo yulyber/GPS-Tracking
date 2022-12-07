@@ -28,9 +28,14 @@ class ContentPage extends GetView<LocationController> {
                     child: ElevatedButton(
                       onPressed: () async {
                         // TODO: 1. Obten la ubicacion actual con gpsController.currentLocation
+                        final location = await gpsController.currentLocation;
                         // TODO: 2. Obten la precision de la lectura con gpsController.locationAccuracy.
+                        final accuracy = await gpsController.locationAccuracy;
                         // TODO: 3. Crea un objeto [TrackedLocation] con fecha actual [DateTime.now] y la precisio como texto [accuracy.name]
                         // TODO: 4. con el [controller] guarda ese objeto [saveLocation]
+                      
+                      controller.saveLocation(location: TrackedLocation (latitude:location.latitude ,longitude:location.longitude ,precision:accuracy.name ,timestamp:DateTime.now() ));
+
                       },
                       child: const Text("Registrar Ubicacion"),
                     ),
@@ -56,6 +61,8 @@ class ContentPage extends GetView<LocationController> {
                               trailing: IconButton(
                                 onPressed: () {
                                   // TODO: elimina la ubicacion [location] usando el controlador [deleteLocation]
+                                  controller.deleteLocation(location: location);
+
                                 },
                                 icon: const Icon(
                                   Icons.delete_forever_rounded,
@@ -75,6 +82,8 @@ class ContentPage extends GetView<LocationController> {
                     child: ElevatedButton(
                       onPressed: () async {
                         // TODO: elimina todas las ubicaciones usando el controlador [deleteAll]
+                        controller.deleteAll();
+                        
                       },
                       child: const Text("Eliminar Todos"),
                     ),
