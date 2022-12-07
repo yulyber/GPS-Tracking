@@ -1,13 +1,9 @@
-# f_gps_tracker
+# GPS-Tracking
+by: Yuly Katheryn Berbesí Pérez
 
-Un template para una aplicación de registro de ubicación usando la Hive y GeoLocator
+Esta aplicación permite el registro de ubicación usando las dependencias de Hive y GeoLocator
 
-Video: https://uninorte-my.sharepoint.com/:v:/g/personal/sastoquek_uninorte_edu_co/EZXEAMfBezFBo72vHb8QekUBup2-X97GABWyk_9XPiH0nA?e=YgUBV0
+Funcional con Android
 
-Funcional con Android, iOS y Web
+![Demo Reto 04](https://user-images.githubusercontent.com/113151593/206064022-e3341db0-2bc7-4136-97c0-23bca2ca68f4.gif)
 
-![Tracker](https://user-images.githubusercontent.com/25647254/192416251-fdae4ea5-3149-4c08-bd3b-b37e23c48f34.gif)
-
-Solución:
-
-https://github.com/MisionTIC4b/f_gps_tracker
