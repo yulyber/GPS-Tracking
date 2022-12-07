@@ -9,10 +9,12 @@ class GpsApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+       debugShowCheckedModeBanner: false,
       title: 'GPS Tracker',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      // theme: ThemeData(
+      //   primarySwatch: Colors.blue,
+      // ),
+      theme: ThemeData.dark(),
       home: const PermissionPage(),
     );
   }

@@ -33,7 +33,6 @@ class _LocationState extends State<PermissionPage> {
       body: FutureBuilder<LocationPermission>(
         future: _permissionStatus,
         builder: (context, snapshot) {
-          
           if (snapshot.connectionState == ConnectionState.done &&
               snapshot.hasData) {
             final status = snapshot.data!;
@@ -49,23 +48,31 @@ class _LocationState extends State<PermissionPage> {
                navega usando [Get.offAll] a [ContentPage] */
 
               // TODO: Mientras el futuro se completa muestra un CircularProgressIndicator
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-
-
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
             } else if (status == LocationPermission.unableToDetermine ||
                 status == LocationPermission.denied) {
               return Center(
                 child: ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-                        // TODO: Actualiza el futuro _permissionStatus con requestPermission
-                        // TODO: y setState para que el FutureBuilder vuelva a renderizarse.
-                        _permissionStatus = controller.requestPermission();
-                      });
-                    },
-                    child: const Text("Solicitar Permisos")),
+                  onPressed: () {
+                    setState(() {
+                      // TODO: Actualiza el futuro _permissionStatus con requestPermission
+                      // TODO: y setState para que el FutureBuilder vuelva a renderizarse.
+                      _permissionStatus = controller.requestPermission();
+                    });
+                  },
+                  child: const Text(
+                    "Solicitar Permisos",
+                    style: TextStyle(
+                        color: Color.fromARGB(255, 28, 28, 28),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    primary: Color.fromARGB(255, 222, 221, 221),
+                  ),
+                ),
               );
             } else {
               // TODO: Muestra un texto cuando el usuario a denegado el permiso permanentemente
@@ -85,7 +92,6 @@ class _LocationState extends State<PermissionPage> {
               child: CircularProgressIndicator(),
             );
           }
-          
         },
       ),
     );

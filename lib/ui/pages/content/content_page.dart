@@ -33,11 +33,24 @@ class ContentPage extends GetView<LocationController> {
                         final accuracy = await gpsController.locationAccuracy;
                         // TODO: 3. Crea un objeto [TrackedLocation] con fecha actual [DateTime.now] y la precisio como texto [accuracy.name]
                         // TODO: 4. con el [controller] guarda ese objeto [saveLocation]
-                      
-                      controller.saveLocation(location: TrackedLocation (latitude:location.latitude ,longitude:location.longitude ,precision:accuracy.name ,timestamp:DateTime.now() ));
 
+                        controller.saveLocation(
+                            location: TrackedLocation(
+                                latitude: location.latitude,
+                                longitude: location.longitude,
+                                precision: accuracy.name,
+                                timestamp: DateTime.now()));
                       },
-                      child: const Text("Registrar Ubicacion"),
+                      child: const Text(
+                        "Registrar Ubicacion",
+                        style: TextStyle(
+                            color: Color.fromARGB(255, 28, 28, 28),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        primary: Color.fromARGB(255, 222, 221, 221),
+                      ),
                     ),
                   ),
                   Expanded(
@@ -62,7 +75,6 @@ class ContentPage extends GetView<LocationController> {
                                 onPressed: () {
                                   // TODO: elimina la ubicacion [location] usando el controlador [deleteLocation]
                                   controller.deleteLocation(location: location);
-
                                 },
                                 icon: const Icon(
                                   Icons.delete_forever_rounded,
@@ -83,9 +95,17 @@ class ContentPage extends GetView<LocationController> {
                       onPressed: () async {
                         // TODO: elimina todas las ubicaciones usando el controlador [deleteAll]
                         controller.deleteAll();
-                        
                       },
-                      child: const Text("Eliminar Todos"),
+                      child: const Text(
+                        "Eliminar Todos",
+                        style: TextStyle(
+                            color: Color.fromARGB(255, 28, 28, 28),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        primary: Color.fromARGB(255, 222, 221, 221),
+                      ),
                     ),
                   ),
                 ],
